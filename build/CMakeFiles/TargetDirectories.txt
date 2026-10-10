@@ -1,0 +1,3 @@
+/run/media/dalvos/Data/C.R.O.N/inbox/Library-System/build/CMakeFiles/Main.dir
+/run/media/dalvos/Data/C.R.O.N/inbox/Library-System/build/CMakeFiles/edit_cache.dir
+/run/media/dalvos/Data/C.R.O.N/inbox/Library-System/build/CMakeFiles/rebuild_cache.dir

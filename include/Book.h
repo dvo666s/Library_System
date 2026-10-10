@@ -1,0 +1,73 @@
+#pragma once
+#include "User.h"
+
+// Start
+
+class Book{
+
+    private:
+        std::string title;
+        std::string isbn;
+        int id;
+        std::string category;
+        double averageRating;
+        double sumRates;
+        int numRate;
+        User author;
+        char key;
+
+    public:
+
+// static variable ************************************ //
+
+        static int count;
+
+// constructor 1 ************************************ //
+
+        Book();
+
+// constructor 2 ************************************ //
+
+        Book( std::string , std::string , std::string , char );
+
+// constructor 3 ************************************ //
+
+        Book( const Book& );
+
+// Equality Test ************************************ //
+
+        bool operator == ( const Book& );
+
+// setter ************************************ //
+
+        void setTitle( std::string );
+        void setISBN( std::string );
+        // void setId( int );
+        void setCategory( std::string );
+        void setAuthor( const User& );
+
+// getter ************************************ //
+
+        std::string getTitle() const;
+        std::string getISBN() const;
+        int getId() const;
+        std::string getCategory() const;
+        User getAuthor() const;
+
+        void rateBook(double );
+
+// Input Operator ************************************ //
+
+        friend std::istream &operator>>( std::istream& ,  Book& );
+
+// Output Operator ************************************ //
+
+        friend std::ostream &operator<<( std::ostream& , const Book& );
+
+// Disconstructor ************************************ //
+
+        ~Book();
+
+};
+
+// End
