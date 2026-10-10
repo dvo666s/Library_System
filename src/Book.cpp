@@ -8,24 +8,23 @@
 
 // constructor 1 ************************************ //
 
-    Book::Book( ) : title(" ") , isbn("") , category(" ") , averageRating(0.0) , numRate(0) , sumRates(0.0) , key(' '){
-        id = 0;
+    Book::Book( ) : title(" ") , isbn("") , category(" ") , averageRating(0.0) , numRate(0) , sumRates(0.0) , authorCheck(' '){
+        id = -1;
         count++;
         id = count;
-        User author;
+        Author author;
     }
 
 // constructor 2 ************************************ //
 
-    Book::Book( std::string title , std::string isbn , std::string category , char key ){
+    Book::Book( std::string title , std::string isbn , std::string category ){
         this -> title = title;
         this -> isbn = isbn;
         this -> category = category;
-        this -> key = key;
-        id = 0;
+        id = -1;
         count++;
         id = count;
-        User author;
+        Author author;
         numRate = 0;
         sumRates = 0.0;
     }
@@ -41,7 +40,6 @@
             author = book.author;
             numRate = book.numRate;
             sumRates = book.sumRates;
-            key = book.key;
         }
 
 // Equality Test ************************************ //
@@ -56,12 +54,9 @@
     void Book::setISBN( std::string isbn ) { this -> isbn = isbn; }
     // void Book::setId( int id ) { this -> id = id; }
     void Book::setCategory( std::string category ) { this -> category = category; }
-    void Book::setAuthor( const User &user ){ 
-        std::cout << "IS BOOK HAS AUTHOR | Y - y \"Yes\" OR N - n\"NO\" ";
-        std::cin >> key;
-        if( key == 'Y' || key == 'y'){
-        author = user;
-    }
+    void Book::setAuthor( const Author& author ){ 
+        authorCheck = 'Y';
+        this -> author = author;
     } 
 
 // getter ************************************ //
@@ -70,7 +65,7 @@
     std::string Book::getISBN() const { return isbn; }
     int Book::getId() const { return id; }
     std::string Book::getCategory() const { return category; }
-    User Book::getAuthor() const {
+    Author Book::getAuthor() const {
         return author;
     }   
 
@@ -120,7 +115,7 @@
         output << "* ID: " << book.id <<std::endl;        
         output << "*****************************" << std::endl;
         // If book have author print auther
-        if( book.key == 'Y' || book.key == 'y'){
+        if( book.authorCheck == 'Y'){
             output << book.author;
         }else output << "THIS BOOK HAS NO AUTHOR" << std::endl;
 

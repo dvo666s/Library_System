@@ -6,6 +6,8 @@ add_executable(Main
 Main.cpp
 src/User.cpp
 src/Book.cpp
+src/Person.cpp
+src/Author.cpp
 service/Run.cpp
 
 )

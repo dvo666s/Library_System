@@ -1,13 +1,9 @@
 #pragma once
-#include <iostream>
-#include <string.h>
+#include "Person.h"
 
-class User{
+class User : public Person {
     private:
-        std::string name;
-        std::string password;
-        std::string email;
-        int age;
+
         int id;
     
     public:
@@ -19,22 +15,9 @@ class User{
         
         bool operator == ( const User& );
 
-// setter
-
-        void setName( std::string );
-        void setPassword( std::string );
-        void setEmail( std::string );
-        
-        // void setAge( int );
-        void setId( int );
 
 // getter
 
-        std::string getName() const;
-        std::string getPassword() const;
-        std::string getEmail() const;
-
-        int getAge();
         int getId();
 
 // // // // // 

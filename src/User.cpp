@@ -1,4 +1,5 @@
 #include "User.h"
+#include "Person.h"
 
 // Start
 
@@ -8,21 +9,17 @@
     
 // constructor 1 ************************************ //
 
-    User::User() : name(" ") , age(0) , password(" ") , email(" "){ 
-        id = 0;
+    User::User(){ 
+        id = -1;
         ++count;
         id = count;
     }
 
 // constructor 2 ************************************ //
 
-    User::User( std::string name , int age, std::string password, std::string email ) : name(name) , age(age) , password(password) , email(email) 
+    User::User( std::string name , int age, std::string password, std::string email ) : Person(name,password,email , age)
     {
-        this -> name = name;
-        this -> age = age;
-        this -> password = password;
-        this -> email = email;
-        id = 0;
+        id = -1;
         ++count;
         id = count;
     }
@@ -37,26 +34,14 @@
         id = user.id;
     }
 
-// ************************************ //
+// Equality Test ************************************ //
 
     bool User::operator == ( const User& user ){ 
         return ( name == user.name && email == user.email && age == user.age && id == user.id && password == user.password);
     }
 
-// setter ************************************ //
-
-    void User::setName ( std::string name ) { this -> name = name; }
-    void User::setPassword ( std::string password ) { this -> password = password; }
-    void User::setEmail ( std::string email ) { this -> email = email; }
-    // void User::setAge ( int age ) { this -> age = age; }
-    void User::setId ( int id ) { this -> id = id; }
-
 // getter ************************************ //
 
-    std::string User::getName() const { return name; }
-    std::string User::getPassword() const { return password; }
-    std::string User::getEmail() const { return email; }
-    int User::getAge() { return age; }
     int User::getId() { return id; }
 
 // Display ************************************ //
@@ -65,17 +50,15 @@
         std::cout << "\n*****************************" << std::endl;
         std::cout << "*         USER INFO         *" << std::endl;
         std::cout << "*****************************" << std::endl;
-        std::cout << "* Name: " << name << std::endl;
-        std::cout << "* Age: " << age << std::endl;
         std::cout << "* ID: " << id <<std::endl;
-        std::cout << "* Email: " << email << std::endl;
-        std::cout << "*****************************" << std::endl;
+        Person::DisplayInfo();
     }
 
 // Input Operator ************************************ //
 
     std::istream &operator >> ( std::istream &input, User &user ){
-        std::cout << "\nENTER THE USER INFORMATION IN THE OREDER" << std::endl;
+        std::cout << "\n========================================\n";
+        std::cout << "ENTER THE USER INFORMATION IN THE OREDER" << std::endl;
         std::cout << "Name " << "Age " << "Email " << "Password ";
         std::cout << "(Space separated)" << std::endl;
         input >> user.name >> user.age >> user.email >> user.password;

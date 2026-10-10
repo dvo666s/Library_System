@@ -1,39 +1,60 @@
+#include "Person.h"
 #include "User.h"
 #include "Book.h"
+#include "Author.h"
 #include "Run.h"
 
 #include <vector>
 // #include <algorithm>
 
 void runLibrary(){
-    int sizes = 0;
-    double Rate = 0;
-    std::cout << "HOW MANY BOOKS AND USERS: ";
-    std::cin >> sizes;
-    std::vector <User> Users(sizes);
-    std::vector <Book> Books(sizes);
+        int userSizes = 0;
+        Author addAuthor;
+        Book addBook;
+        char runAuthorCheck = ' ';
+        int authorAndBookSize = 0;
+        double Rate = 0;
+        std::cout << "HOW MANY USERS: ";
+        std::cin >> userSizes;
+        std::vector <User> Users(userSizes);
+        std::vector <Book> Books;
+        std::vector <Author> Authors;
 
-    for(int i = 0; i < sizes; ++i){
+
+    for(int i = 0; i < userSizes; ++i){
         std::cin >> Users.at(i);
-        std::cin >> Books.at(i);
-        // IF Book has Author
-        Books.at(i).setAuthor(Users.at(i));
 
-        std::cout << "RATE OUR BOOK FROM 1 TO 5 STAR: ";
+        std::cout << "ADD BOOK | Y - y \"Yes\" OR N - n\"NO\" ";
+        std::cin >> runAuthorCheck;
+        if( runAuthorCheck == 'Y' || runAuthorCheck == 'y'){
+        
+        Books.push_back(addBook);
+        std::cin >> Books.at(authorAndBookSize);
+
+        Authors.push_back(addAuthor);
+        std::cin >> Authors.at(authorAndBookSize);
+        
+        Books.at(authorAndBookSize).setAuthor(Authors.at(authorAndBookSize));
+
+        std::cout << Users.at(i).getName() << " RATE OUR BOOK FROM 1 TO 5 STAR: ";
         std::cin >> Rate;
-        Books.at(i).rateBook(Rate);
-    }
-    
-    std::cout << "////////////////////////////" << std::endl;
+        Books.at(authorAndBookSize).rateBook(Rate);
 
-    for(int i = 0; i < sizes; ++i ){
-        std::cout << Books.at(i) << std::endl;
-        // std::cout << Users.at(i) << std::endl;
-    }
+        ++authorAndBookSize;
+        }
 
-    std::cout << "////////////////////////////" << std::endl;
-    
-    for( int i = 0; i < sizes; ++i ){
-        std::cout << Users.at(i);
+        }
+
+        std::cout << "////////////////////////////" << std::endl;
+
+        for(int i = 0; i < authorAndBookSize; ++i ){
+            std::cout << Books.at(i) << std::endl;
+            // std::cout << Users.at(i) << std::endl;
+        }
+
+        std::cout << "////////////////////////////" << std::endl;
+
+        for( int i = 0; i < userSizes; ++i ){
+            std::cout << Users.at(i);
     }
-}
+}  

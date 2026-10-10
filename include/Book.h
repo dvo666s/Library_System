@@ -1,5 +1,5 @@
 #pragma once
-#include "User.h"
+#include "Author.h"
 
 // Start
 
@@ -13,8 +13,8 @@ class Book{
         double averageRating;
         double sumRates;
         int numRate;
-        User author;
-        char key;
+        Author author;
+        char authorCheck;
 
     public:
 
@@ -28,7 +28,7 @@ class Book{
 
 // constructor 2 ************************************ //
 
-        Book( std::string , std::string , std::string , char );
+        Book( std::string , std::string , std::string );
 
 // constructor 3 ************************************ //
 
@@ -44,7 +44,7 @@ class Book{
         void setISBN( std::string );
         // void setId( int );
         void setCategory( std::string );
-        void setAuthor( const User& );
+        void setAuthor( const Author& );
 
 // getter ************************************ //
 
@@ -52,7 +52,7 @@ class Book{
         std::string getISBN() const;
         int getId() const;
         std::string getCategory() const;
-        User getAuthor() const;
+        Author getAuthor() const;
 
         void rateBook(double );
 
