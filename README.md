@@ -17,5 +17,3 @@
 - Understand why the IDs are incremented more than once.
 - Fix the ID logic without relying on a temporary workaround.
 - Continue improving the project structure.
-
-
