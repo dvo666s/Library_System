@@ -13,8 +13,9 @@ class Book{
         double averageRating;
         double sumRates;
         int numRate;
-        Author author;
-        char authorCheck;
+
+        Author *author;
+        bool hasAuthor;
 
     public:
 
@@ -63,6 +64,10 @@ class Book{
 // Output Operator ************************************ //
 
         friend std::ostream &operator<<( std::ostream& , const Book& );
+
+// Display ************************************ //
+
+        void DisplayInfo();
 
 // Disconstructor ************************************ //
 

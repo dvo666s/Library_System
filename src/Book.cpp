@@ -8,11 +8,10 @@
 
 // constructor 1 ************************************ //
 
-    Book::Book( ) : title(" ") , isbn("") , category(" ") , averageRating(0.0) , numRate(0) , sumRates(0.0) , authorCheck(' '){
-        id = -1;
-        count++;
+    Book::Book( ) : title(" ") , isbn("") , category(" ") , averageRating(0.0) , numRate(0) , sumRates(0.0) , hasAuthor(false){
+        id = 0;
+        ++count;
         id = count;
-        Author author;
     }
 
 // constructor 2 ************************************ //
@@ -21,26 +20,28 @@
         this -> title = title;
         this -> isbn = isbn;
         this -> category = category;
-        id = -1;
-        count++;
+        id = 0;
+        ++count;
         id = count;
-        Author author;
         numRate = 0;
         sumRates = 0.0;
+        hasAuthor = false;
     }
 
 // constructor 3 ************************************ //
 
     Book::Book( const Book& book ){
-            title = book.title;
-            isbn = book.isbn;
-            category = book.category;
-            averageRating = book.averageRating;
-            id = book.id;
-            author = book.author;
-            numRate = book.numRate;
-            sumRates = book.sumRates;
+        title = book.title;
+        isbn = book.isbn;
+        category = book.category;
+        averageRating = book.averageRating;
+        id = book.id;
+        numRate = book.numRate;
+        sumRates = book.sumRates;
+        if(book.hasAuthor){
+            setAuthor(*book.author);
         }
+    }
 
 // Equality Test ************************************ //
 
@@ -55,8 +56,8 @@
     // void Book::setId( int id ) { this -> id = id; }
     void Book::setCategory( std::string category ) { this -> category = category; }
     void Book::setAuthor( const Author& author ){ 
-        authorCheck = 'Y';
-        this -> author = author;
+        hasAuthor = true;
+        this -> author = new Author(author);
     } 
 
 // getter ************************************ //
@@ -66,7 +67,7 @@
     int Book::getId() const { return id; }
     std::string Book::getCategory() const { return category; }
     Author Book::getAuthor() const {
-        return author;
+        return *author;
     }   
 
 // Book Rate ************************************ //
@@ -93,6 +94,23 @@
         // }
     }
 
+// Display ************************************ //
+
+    void Book::DisplayInfo(){
+        std::cout << "\n*****************************" << std::endl;
+        std::cout << "*         BOOK "<< id <<" INFO       *" << std::endl;
+        std::cout << "*****************************" << std::endl;
+        std::cout << "* Title: " << title << std::endl;
+        std::cout << "* isbn: " << isbn << std::endl;
+        std::cout << "* category: " << category << std::endl;
+        std::cout << "* Book Rate: " << averageRating << std::endl;
+        std::cout << "* ID: " << id <<std::endl;        
+        std::cout << "*****************************" << std::endl;
+        if(hasAuthor){
+            std::cout << *(author);
+        }else std::cout << "THIS BOOK HAS NO AUTHOR" << std::endl;
+    }
+
 // Input Operator ************************************ //
 
     std::istream &operator >> ( std::istream &input, Book& book){
@@ -106,7 +124,7 @@
 
     std::ostream &operator<<( std::ostream& output, const Book& book){
         output << "\n*****************************" << std::endl;
-        output << "*         BOOK INFO         *" << std::endl;
+        output << "*         BOOK "<< book.getId() <<" INFO       *" << std::endl;
         output << "*****************************" << std::endl;
         output << "* Title: " << book.title << std::endl;
         output << "* isbn: " << book.isbn << std::endl;
@@ -115,13 +133,16 @@
         output << "* ID: " << book.id <<std::endl;        
         output << "*****************************" << std::endl;
         // If book have author print auther
-        if( book.authorCheck == 'Y'){
-            output << book.author;
+        if( book.hasAuthor ){
+            output << *(book.author);
         }else output << "THIS BOOK HAS NO AUTHOR" << std::endl;
 
     return output;
     }
 
-        Book::~Book(){}
+// Deconstructor ************************************ //
 
+        Book::~Book(){
+            // delete(author);
+        }
 // End

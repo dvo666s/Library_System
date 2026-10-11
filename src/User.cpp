@@ -10,7 +10,7 @@
 // constructor 1 ************************************ //
 
     User::User(){ 
-        id = -1;
+        id = 0;
         ++count;
         id = count;
     }
@@ -19,7 +19,7 @@
 
     User::User( std::string name , int age, std::string password, std::string email ) : Person(name,password,email , age)
     {
-        id = -1;
+        id = 0;
         ++count;
         id = count;
     }
@@ -33,6 +33,16 @@
         email = user.email;
         id = user.id;
     }
+
+// Equality operator ************************************ //
+
+    void User::operator=(const User& user){
+        name = user.name;
+        age = user.age;
+        password = user.password;
+        email = user.email;        
+    }
+
 
 // Equality Test ************************************ //
 
@@ -48,7 +58,7 @@
 
     void User::DisplayInfo(){
         std::cout << "\n*****************************" << std::endl;
-        std::cout << "*         USER INFO         *" << std::endl;
+        std::cout << "*         USER "<< id <<" INFO       *" << std::endl;
         std::cout << "*****************************" << std::endl;
         std::cout << "* ID: " << id <<std::endl;
         Person::DisplayInfo();
@@ -70,7 +80,7 @@
 
     std::ostream &operator << ( std::ostream &output, const User& user ){
         output << "\n*****************************" << std::endl;
-        output << "*         USER INFO         *" << std::endl;
+        output << "*         USER "<< user.id <<" INFO       *" << std::endl;
         output << "*****************************" << std::endl;
         output << "* Name: " << user.name << std::endl;
         output << "* Age: " << user.age << std::endl;

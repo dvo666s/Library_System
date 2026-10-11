@@ -7,25 +7,43 @@ class User : public Person {
         int id;
     
     public:
+// static variable ************************************ //
+
         static int count;
         
+// constructor 1 ************************************ //
+
         User();
+
+// constructor 2 ************************************ //
+
         User( std::string , int , std::string , std::string );
+     
+// constructor 3 ************************************ //
+
         User( const User& );
         
-        bool operator == ( const User& );
-
-
-// getter
+// getter ************************************ //
 
         int getId();
 
-// // // // // 
+// Equality Test ************************************ //
 
-        void DisplayInfo();
+        bool operator == ( const User& );
+
+// Equality Operator ************************************ //
+
+        void operator=(const User&);
+
+// Input Operator ************************************ //
+
+        friend std::istream &operator >> (std::istream &, User& );
+
+// Output Operator ************************************ //
 
         friend std::ostream &operator << (std::ostream &, const User& );
-        friend std::istream &operator >> (std::istream &, User& );
+
+void DisplayInfo();
 
         ~User();
 };

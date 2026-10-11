@@ -10,19 +10,23 @@ class Person{
         int age;
     
     public:
+
+// constructor 1 ************************************ //
+
         Person();
+
+// constructor 2 ************************************ //
+
         Person( std::string , std::string , std::string , int );
 
-        bool operator == ( const Person& );
-
-        // setter
+// setter ************************************ //
 
         void setName( std::string );
         void setPassword( std::string );
         void setEmail( std::string );
         void setAge( int );
 
-// getter
+// getter ************************************ //
 
         std::string getName() const;
         std::string getPassword() const;
@@ -30,9 +34,11 @@ class Person{
 
         int getAge();
 
-// // // // // 
+// Display ************************************ //
 
         void DisplayInfo();
+
+// Disconstructor ************************************ //
 
         ~Person();
 };
