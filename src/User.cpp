@@ -70,7 +70,6 @@
         std::cout << "\n========================================\n";
         std::cout << "ENTER THE USER INFORMATION IN THE OREDER" << std::endl;
         std::cout << "Name " << "Age " << "Email " << "Password ";
-        std::cout << "(Space separated)" << std::endl;
         input >> user.name >> user.age >> user.email >> user.password;
 
         return input;

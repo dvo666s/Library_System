@@ -49,13 +49,9 @@ void runLibrary(){
     std::cout << "////////////////////////////" << std::endl;
 
     for(int i = 0; i < authorAndBookSize; ++i ){
+        std::cout << Users.at(i) << std::endl;
         std::cout << Books.at(i) << std::endl;
-        // std::cout << Users.at(i) << std::endl;
     }
 
-    std::cout << "////////////////////////////" << std::endl;
 
-    for( int i = 0; i < userSizes; ++i ){
-        std::cout << Users.at(i);
-    }
 }  

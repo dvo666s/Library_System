@@ -115,7 +115,8 @@
 
     std::istream &operator >> ( std::istream &input, Book& book){
         std::cout << "\nENTER THE BOOK INFORMATION IN THE OREDER" << std::endl;
-        std::cout << "Title " << "Isbn " << "Category(Space separated) " << std::endl;
+        std::cout << "Title " << "Isbn " << "Category " << std::endl;
+        std::cout << "(SPACE SEPARATED)" << std::endl;
         input >> book.title >> book.isbn >> book.category;
         return input;
     }
