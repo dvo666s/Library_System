@@ -60,19 +60,22 @@ cd Library_System
 ### 2. Configure the project
 
 ```bash
-cmake -S . -B build -G Ninja
+mkdir build
+cd build
+cmake -G Ninja ..
 ```
 
 ### 3. Build the executable
 
 ```bash
-cmake --build build
+cd build
+ninja all
 ```
 
 ### 4. Run the program
 
 ```bash
-./build/Main
+./Main
 ```
 
 ## Learning Goals
