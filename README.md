@@ -4,7 +4,11 @@ A console-based Library Management System developed in C++ as a practice project
 
 This project represents my practical experience with designing classes, implementing relationships between objects, and applying core C++ concepts in a multi-file application.
 
-**Project Status:** Completed learning project. This repository represents the state of the project at the end of my OOP practice and is not intended to be a production-ready library management system.
+## Project Status
+
+**Completed learning project.**
+
+This repository represents the state of the project at the end of my Object-Oriented Programming practice. It was built to apply C++ concepts in a practical project and is not intended to be a production-ready library management system.
 
 ## Features
 
