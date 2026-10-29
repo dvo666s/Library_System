@@ -68,7 +68,6 @@ cmake -G Ninja ..
 ### 3. Build the executable
 
 ```bash
-cd build
 ninja all
 ```
 
