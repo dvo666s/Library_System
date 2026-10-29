@@ -1,23 +1,35 @@
 # Library System
 
-A simple console-based Library Management System built with C++.
+A console-based Library Management System developed in C++ as a practice project while learning Object-Oriented Programming (OOP).
 
-This project was developed as a practical exercise in Object-Oriented Programming (OOP), focusing on classes, relationships between objects, and operator overloading.
+This project represents my practical experience with designing classes, implementing relationships between objects, and applying core C++ concepts in a multi-file application.
+
+**Project Status:** Completed learning project. This repository represents the state of the project at the end of my OOP practice and is not intended to be a production-ready library management system.
 
 ## Features
 
-- Create multiple users.
+- Create and manage multiple user objects.
 - Add books and associate them with authors.
-- Rate books on a scale of 1 to 5.
-- Display user and book information.
+- Rate books on a scale from 1 to 5.
+- Display user and book information through console output.
 
-## OOP Concepts
+## Concepts Practiced
 
-- **Inheritance:** `Person` is the base class for `User` and `Author`.
-- **Composition:** A `Book` contains an `Author` object.
-- **Encapsulation:** Data is managed using access modifiers, getters, and setters.
-- **Operator Overloading:** Custom behavior for operators such as `<<`, `>>`, `==`, and `=`.
-- **Static Members:** Used for ID counters.
+### Object-Oriented Programming
+
+- **Classes and Objects:** Modeling people, users, authors, and books.
+- **Inheritance:** Using `Person` as a base class for `User` and `Author`.
+- **Composition:** Representing the relationship between a book and its author.
+- **Encapsulation:** Organizing data and providing access through getters and setters.
+- **Constructors and Copy Constructors:** Initializing and copying objects.
+- **Static Members:** Practicing shared class-level data and ID counters.
+
+### C++ Features
+
+- **Operator Overloading:** Implementing custom behavior for operators such as `<<`, `>>`, `==`, and `=`.
+- **STL Containers:** Using `std::vector` to store collections of objects.
+- **Header and Source Files:** Separating class declarations from their implementations.
+- **CMake and Ninja:** Using a build-system workflow to organize and compile a multi-file C++ project.
 
 ## Project Structure
 
@@ -36,19 +48,18 @@ Library_System/
 │   └── Book.cpp
 ├── service/
 │   └── Run.cpp       # Main program logic
-├── Main.cpp          # Program entry point
+├── Main.cpp          # Entry point
 ├── CMakeLists.txt
 └── .gitignore
 ```
 
-## Requirements
+## Build Instructions
 
-- A C++ compiler.
-- CMake 4.3.0 or a compatible version satisfying the project's configuration.
-- Ninja build system.
-- Git (to clone the repository).
+### Requirements
 
-## Build and Run
+- A C++ compiler
+- CMake 4.3.0 or later, as specified in `CMakeLists.txt`
+- Ninja
 
 ### 1. Clone the repository
 
@@ -77,16 +88,12 @@ ninja all
 ./Main
 ```
 
-## Learning Goals
+The build and run commands describe the intended workflow; successful execution depends on the current source compiling correctly in your environment.
 
-This project helped me practice:
+## Purpose
 
-- Designing classes and defining responsibilities.
-- Applying inheritance and composition.
-- Separating declarations from implementations.
-- Working with overloaded operators.
-- Organizing a multi-file C++ project using CMake and Ninja.
+The main goal of this project was to move beyond learning C++ syntax and practice applying OOP concepts in a small, structured application.
 
-## License
+It served as a learning exercise in class design, object relationships, constructors, operator overloading, and basic project organization.
 
-No license has been specified yet.
+This repository is a record of that learning stage rather than an actively maintained application.
